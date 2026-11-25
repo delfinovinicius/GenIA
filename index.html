@@ -5,28 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <meta name="referrer" content="no-referrer">
-<meta name="theme-color" content="#123528">
+<meta name="theme-color" content="#14163A">
 <title>GenIA</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23123528'/%3E%3Crect x='10' y='10' width='20' height='20' rx='3' fill='%23E9B949'/%3E%3Crect x='34' y='10' width='20' height='20' rx='3' fill='%23E9B949'/%3E%3Crect x='10' y='34' width='20' height='20' rx='3' fill='%23E9B949'/%3E%3Crect x='34' y='34' width='20' height='20' rx='3' fill='%2367B98A'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%2314163A'/%3E%3Crect x='10' y='10' width='20' height='20' rx='3' fill='%235B7CFA'/%3E%3Crect x='34' y='10' width='20' height='20' rx='3' fill='%235B7CFA'/%3E%3Crect x='10' y='34' width='20' height='20' rx='3' fill='%235B7CFA'/%3E%3Crect x='34' y='34' width='20' height='20' rx='3' fill='%23E0479E'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500;700&display=swap">
 <style>
-  /* Identidade GenIA (público: estudantes de 18 anos).
+  /* Identidade GenIA (público: estudantes da 3ª série). Cores de laboratório de citogenética: azul do corante dos cromossomos e magenta das sondas fluorescentes, fundo escuro de microscópio.
      Linguagem visual de laboratório de genética: quadro de Punnett no símbolo, faixa de sequência (A T C G) sob a marca,
      dupla hélice como costura entre o painel e a conversa, passos numerados como gerações de heredograma (I, II, III). */
   :root{
-    --paper:#F4F6F3; --surface:#FFFFFF; --ink:#132119; --muted:#55665B; --line:#D6DFD7;
-    --deep:#123528; --deep-2:#1C4A38; --leaf:#67B98A; --seed:#E9B949; --seed-soft:#FBF0D3; --warn:#6E4200;
-    --a:#E9B949; --t:#67B98A; --c:#8FB8D9; --g:#E58A6B;  /* bases: adenina, timina, citosina, guanina */
-    --on-deep:#EEF4EF;
+    --paper:#F4F4F9; --surface:#FFFFFF; --ink:#16172B; --muted:#5A5D78; --line:#DCDDEA;
+    --deep:#14163A; --deep-2:#1E2152; --leaf:#E0479E; --seed:#5B7CFA; --seed-soft:#FFF1DC; --warn:#6E4200; --probe-soft:#FBE3F0; --alert-edge:#E9A23B;
+    --a:#E0479E; --t:#4CC9F0; --c:#B59CFF; --g:#DCE1FF;  /* bases: adenina, timina, citosina, guanina */
+    --on-deep:#EEF0FF;
     --display:"Space Grotesk", "Segoe UI", system-ui, sans-serif;
     --body:"Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
     --mono:"JetBrains Mono", ui-monospace, "Cascadia Mono", monospace;
   }
   @media (prefers-color-scheme: dark){
-    :root{ --paper:#0D1611; --surface:#121D17; --ink:#E4EDE6; --muted:#9AAEA1; --line:#24342B;
-      --seed-soft:#2B2513; --warn:#F3CF86; color-scheme:dark }
+    :root{ --paper:#0D0E22; --surface:#13152E; --ink:#E6E8F7; --muted:#9EA1C2; --line:#272A4D;
+      --seed-soft:#2B2213; --warn:#F3CF86; color-scheme:dark }
   }
   *{box-sizing:border-box}
   html,body{height:100%}
@@ -39,7 +39,7 @@
   .logo{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}
   .logo svg{width:40px;height:40px;flex:none}
   .wordmark{font-family:var(--display);font-weight:700;font-size:1.6rem;letter-spacing:-.02em;line-height:1}
-  .wordmark b{color:var(--seed);font-weight:700}
+  .wordmark b{color:#F27BBF;font-weight:700}
   .bar .sub{font-size:.95rem;opacity:.8;border-left:1px solid rgba(238,244,239,.25);padding-left:16px}
   .bar .tag{margin-left:auto;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;opacity:.85;white-space:nowrap}
 
@@ -53,14 +53,14 @@
   .app{display:grid;grid-template-columns:340px 44px minmax(0,1fr);min-height:0}
   .panel{background:var(--paper);overflow:auto;display:flex;flex-direction:column;gap:22px;
          padding-block:26px;padding-left:max(22px,env(safe-area-inset-left,0px));padding-right:14px}
-  .helix{background:var(--paper) url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2244%22%20height%3D%22120%22%20viewBox%3D%220%200%2044%20120%22%3E%3Cline%20x1%3D%2226.3%22%20y1%3D%226%22%20x2%3D%2222.0%22%20y2%3D%226%22%20stroke%3D%22%23E9B949%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2222.0%22%20y1%3D%226%22%20x2%3D%2217.7%22%20y2%3D%226%22%20stroke%3D%22%23C9D8C4%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2233.3%22%20y1%3D%2218%22%20x2%3D%2222.0%22%20y2%3D%2218%22%20stroke%3D%22%2379C08E%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2222.0%22%20y1%3D%2218%22%20x2%3D%2210.7%22%20y2%3D%2218%22%20stroke%3D%22%2379C08E%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2236.0%22%20y1%3D%2230%22%20x2%3D%2222.0%22%20y2%3D%2230%22%20stroke%3D%22%23E9B949%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2222.0%22%20y1%3D%2230%22%20x2%3D%228.0%22%20y2%3D%2230%22%20stroke%3D%22%23E9B949%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2233.3%22%20y1%3D%2242%22%20x2%3D%2222.0%22%20y2%3D%2242%22%20stroke%3D%22%23C9D8C4%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2222.0%22%20y1%3D%2242%22%20x2%3D%2210.7%22%20y2%3D%2242%22%20stroke%3D%22%23C9D8C4%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2226.3%22%20y1%3D%2254%22%20x2%3D%2222.0%22%20y2%3D%2254%22%20stroke%3D%22%2379C08E%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2222.0%22%20y1%3D%2254%22%20x2%3D%2217.7%22%20y2%3D%2254%22%20stroke%3D%22%2379C08E%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2217.7%22%20y1%3D%2266%22%20x2%3D%2222.0%22%20y2%3D%2266%22%20stroke%3D%22%23E9B949%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2222.0%22%20y1%3D%2266%22%20x2%3D%2226.3%22%20y2%3D%2266%22%20stroke%3D%22%23E9B949%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2210.7%22%20y1%3D%2278%22%20x2%3D%2222.0%22%20y2%3D%2278%22%20stroke%3D%22%23C9D8C4%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2222.0%22%20y1%3D%2278%22%20x2%3D%2233.3%22%20y2%3D%2278%22%20stroke%3D%22%2379C08E%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%228.0%22%20y1%3D%2290%22%20x2%3D%2222.0%22%20y2%3D%2290%22%20stroke%3D%22%2379C08E%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2222.0%22%20y1%3D%2290%22%20x2%3D%2236.0%22%20y2%3D%2290%22%20stroke%3D%22%23E9B949%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2210.7%22%20y1%3D%22102%22%20x2%3D%2222.0%22%20y2%3D%22102%22%20stroke%3D%22%23E9B949%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2222.0%22%20y1%3D%22102%22%20x2%3D%2233.3%22%20y2%3D%22102%22%20stroke%3D%22%2379C08E%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2217.7%22%20y1%3D%22114%22%20x2%3D%2222.0%22%20y2%3D%22114%22%20stroke%3D%22%2379C08E%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2222.0%22%20y1%3D%22114%22%20x2%3D%2226.3%22%20y2%3D%22114%22%20stroke%3D%22%23E9B949%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpolyline%20points%3D%2222.00%2C0%2023.46%2C2%2024.91%2C4%2026.33%2C6%2027.69%2C8%2029.00%2C10%2030.23%2C12%2031.37%2C14%2032.40%2C16%2033.33%2C18%2034.12%2C20%2034.79%2C22%2035.31%2C24%2035.69%2C26%2035.92%2C28%2036.00%2C30%2035.92%2C32%2035.69%2C34%2035.31%2C36%2034.79%2C38%2034.12%2C40%2033.33%2C42%2032.40%2C44%2031.37%2C46%2030.23%2C48%2029.00%2C50%2027.69%2C52%2026.33%2C54%2024.91%2C56%2023.46%2C58%2022.00%2C60%2020.54%2C62%2019.09%2C64%2017.67%2C66%2016.31%2C68%2015.00%2C70%2013.77%2C72%2012.63%2C74%2011.60%2C76%2010.67%2C78%209.88%2C80%209.21%2C82%208.69%2C84%208.31%2C86%208.08%2C88%208.00%2C90%208.08%2C92%208.31%2C94%208.69%2C96%209.21%2C98%209.88%2C100%2010.67%2C102%2011.60%2C104%2012.63%2C106%2013.77%2C108%2015.00%2C110%2016.31%2C112%2017.67%2C114%2019.09%2C116%2020.54%2C118%2022.00%2C120%22%20fill%3D%22none%22%20stroke%3D%22%233E7D4F%22%20stroke-width%3D%222.5%22/%3E%3Cpolyline%20points%3D%2222.00%2C0%2020.54%2C2%2019.09%2C4%2017.67%2C6%2016.31%2C8%2015.00%2C10%2013.77%2C12%2012.63%2C14%2011.60%2C16%2010.67%2C18%209.88%2C20%209.21%2C22%208.69%2C24%208.31%2C26%208.08%2C28%208.00%2C30%208.08%2C32%208.31%2C34%208.69%2C36%209.21%2C38%209.88%2C40%2010.67%2C42%2011.60%2C44%2012.63%2C46%2013.77%2C48%2015.00%2C50%2016.31%2C52%2017.67%2C54%2019.09%2C56%2020.54%2C58%2022.00%2C60%2023.46%2C62%2024.91%2C64%2026.33%2C66%2027.69%2C68%2029.00%2C70%2030.23%2C72%2031.37%2C74%2032.40%2C76%2033.33%2C78%2034.12%2C80%2034.79%2C82%2035.31%2C84%2035.69%2C86%2035.92%2C88%2036.00%2C90%2035.92%2C92%2035.69%2C94%2035.31%2C96%2034.79%2C98%2034.12%2C100%2033.33%2C102%2032.40%2C104%2031.37%2C106%2030.23%2C108%2029.00%2C110%2027.69%2C112%2026.33%2C114%2024.91%2C116%2023.46%2C118%2022.00%2C120%22%20fill%3D%22none%22%20stroke%3D%22%232C5E3A%22%20stroke-width%3D%222.5%22/%3E%3C/svg%3E") center top/44px 120px repeat-y;animation:spin 9s linear infinite}
+  .helix{background:var(--paper) url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2244%22%20height%3D%22120%22%20viewBox%3D%220%200%2044%20120%22%3E%3Cline%20x1%3D%2226.3%22%20y1%3D%226%22%20x2%3D%2222.0%22%20y2%3D%226%22%20stroke%3D%22%23E0479E%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2222.0%22%20y1%3D%226%22%20x2%3D%2217.7%22%20y2%3D%226%22%20stroke%3D%22%235B7CFA%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2233.3%22%20y1%3D%2218%22%20x2%3D%2222.0%22%20y2%3D%2218%22%20stroke%3D%22%234CC9F0%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2222.0%22%20y1%3D%2218%22%20x2%3D%2210.7%22%20y2%3D%2218%22%20stroke%3D%22%23E0479E%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2236.0%22%20y1%3D%2230%22%20x2%3D%2222.0%22%20y2%3D%2230%22%20stroke%3D%22%23B59CFF%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2222.0%22%20y1%3D%2230%22%20x2%3D%228.0%22%20y2%3D%2230%22%20stroke%3D%22%234CC9F0%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2233.3%22%20y1%3D%2242%22%20x2%3D%2222.0%22%20y2%3D%2242%22%20stroke%3D%22%235B7CFA%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2222.0%22%20y1%3D%2242%22%20x2%3D%2210.7%22%20y2%3D%2242%22%20stroke%3D%22%23B59CFF%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2226.3%22%20y1%3D%2254%22%20x2%3D%2222.0%22%20y2%3D%2254%22%20stroke%3D%22%23E0479E%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2222.0%22%20y1%3D%2254%22%20x2%3D%2217.7%22%20y2%3D%2254%22%20stroke%3D%22%23E0479E%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2217.7%22%20y1%3D%2266%22%20x2%3D%2222.0%22%20y2%3D%2266%22%20stroke%3D%22%234CC9F0%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2222.0%22%20y1%3D%2266%22%20x2%3D%2226.3%22%20y2%3D%2266%22%20stroke%3D%22%235B7CFA%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2210.7%22%20y1%3D%2278%22%20x2%3D%2222.0%22%20y2%3D%2278%22%20stroke%3D%22%23B59CFF%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2222.0%22%20y1%3D%2278%22%20x2%3D%2233.3%22%20y2%3D%2278%22%20stroke%3D%22%234CC9F0%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%228.0%22%20y1%3D%2290%22%20x2%3D%2222.0%22%20y2%3D%2290%22%20stroke%3D%22%23E0479E%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2222.0%22%20y1%3D%2290%22%20x2%3D%2236.0%22%20y2%3D%2290%22%20stroke%3D%22%23E0479E%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2210.7%22%20y1%3D%22102%22%20x2%3D%2222.0%22%20y2%3D%22102%22%20stroke%3D%22%235B7CFA%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2222.0%22%20y1%3D%22102%22%20x2%3D%2233.3%22%20y2%3D%22102%22%20stroke%3D%22%234CC9F0%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2217.7%22%20y1%3D%22114%22%20x2%3D%2222.0%22%20y2%3D%22114%22%20stroke%3D%22%234CC9F0%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2222.0%22%20y1%3D%22114%22%20x2%3D%2226.3%22%20y2%3D%22114%22%20stroke%3D%22%23B59CFF%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22/%3E%3Cpolyline%20points%3D%2222.00%2C0%2023.46%2C2%2024.91%2C4%2026.33%2C6%2027.69%2C8%2029.00%2C10%2030.23%2C12%2031.37%2C14%2032.40%2C16%2033.33%2C18%2034.12%2C20%2034.79%2C22%2035.31%2C24%2035.69%2C26%2035.92%2C28%2036.00%2C30%2035.92%2C32%2035.69%2C34%2035.31%2C36%2034.79%2C38%2034.12%2C40%2033.33%2C42%2032.40%2C44%2031.37%2C46%2030.23%2C48%2029.00%2C50%2027.69%2C52%2026.33%2C54%2024.91%2C56%2023.46%2C58%2022.00%2C60%2020.54%2C62%2019.09%2C64%2017.67%2C66%2016.31%2C68%2015.00%2C70%2013.77%2C72%2012.63%2C74%2011.60%2C76%2010.67%2C78%209.88%2C80%209.21%2C82%208.69%2C84%208.31%2C86%208.08%2C88%208.00%2C90%208.08%2C92%208.31%2C94%208.69%2C96%209.21%2C98%209.88%2C100%2010.67%2C102%2011.60%2C104%2012.63%2C106%2013.77%2C108%2015.00%2C110%2016.31%2C112%2017.67%2C114%2019.09%2C116%2020.54%2C118%2022.00%2C120%22%20fill%3D%22none%22%20stroke%3D%22%235B7CFA%22%20stroke-width%3D%222.5%22/%3E%3Cpolyline%20points%3D%2222.00%2C0%2020.54%2C2%2019.09%2C4%2017.67%2C6%2016.31%2C8%2015.00%2C10%2013.77%2C12%2012.63%2C14%2011.60%2C16%2010.67%2C18%209.88%2C20%209.21%2C22%208.69%2C24%208.31%2C26%208.08%2C28%208.00%2C30%208.08%2C32%208.31%2C34%208.69%2C36%209.21%2C38%209.88%2C40%2010.67%2C42%2011.60%2C44%2012.63%2C46%2013.77%2C48%2015.00%2C50%2016.31%2C52%2017.67%2C54%2019.09%2C56%2020.54%2C58%2022.00%2C60%2023.46%2C62%2024.91%2C64%2026.33%2C66%2027.69%2C68%2029.00%2C70%2030.23%2C72%2031.37%2C74%2032.40%2C76%2033.33%2C78%2034.12%2C80%2034.79%2C82%2035.31%2C84%2035.69%2C86%2035.92%2C88%2036.00%2C90%2035.92%2C92%2035.69%2C94%2035.31%2C96%2034.79%2C98%2034.12%2C100%2033.33%2C102%2032.40%2C104%2031.37%2C106%2030.23%2C108%2029.00%2C110%2027.69%2C112%2026.33%2C114%2024.91%2C116%2023.46%2C118%2022.00%2C120%22%20fill%3D%22none%22%20stroke%3D%22%232A2F7A%22%20stroke-width%3D%222.5%22/%3E%3C/svg%3E") center top/44px 120px repeat-y;animation:spin 9s linear infinite}
   @keyframes spin{to{background-position:center 120px}}
   @media (prefers-reduced-motion: reduce){ .helix{animation:none} }
 
   .punnett{display:grid;grid-template-columns:22px repeat(2,46px);grid-template-rows:22px repeat(2,46px);gap:4px;font-family:var(--mono);font-weight:700;font-size:.85rem}
   .punnett .h{display:grid;place-items:center;color:var(--muted)}
-  .punnett .c{display:grid;place-items:center;border-radius:6px;background:var(--seed);color:#3A2A00}
-  .punnett .r{background:var(--leaf);color:#0D2A1A}
+  .punnett .c{display:grid;place-items:center;border-radius:6px;background:var(--seed);color:#fff}
+  .punnett .r{background:var(--leaf);color:#fff}
   .hero{display:flex;gap:18px;align-items:flex-start}
   .hero h1{font-family:var(--display);font-weight:700;font-size:1.45rem;line-height:1.15;letter-spacing:-.015em;margin:0;text-wrap:balance}
   .lead{margin:0;color:var(--muted)}
@@ -78,7 +78,7 @@
   .sym.full{background:var(--deep-2)}
   @media (prefers-color-scheme: dark){ .sym{border-color:var(--leaf)} .sym.half{background:linear-gradient(90deg,var(--leaf) 50%,var(--surface) 50%)} .sym.full{background:var(--leaf)} }
 
-  .alert{background:var(--seed-soft);color:var(--warn);border-left:4px solid var(--seed);padding:12px 14px;border-radius:4px}
+  .alert{background:var(--seed-soft);color:var(--warn);border-left:4px solid var(--alert-edge);padding:12px 14px;border-radius:4px}
   .alert strong{display:block;margin-bottom:2px}
   .note{font-size:.9rem;color:var(--muted);margin:0}
   .foot{margin-top:auto;font-size:.82rem;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
@@ -87,14 +87,14 @@
   .chat iframe{border:0;width:100%;min-height:calc(100vh - 86px);display:block;background:var(--surface)}
 
   details.help,.mini-alert{display:none}
-  a:focus-visible,iframe:focus-visible,summary:focus-visible{outline:3px solid var(--seed);outline-offset:2px}
+  a:focus-visible,iframe:focus-visible,summary:focus-visible{outline:3px solid var(--leaf);outline-offset:2px}
 
   @media (max-width:860px){
     .bar .sub{display:none}
     .app{grid-template-columns:1fr;grid-template-rows:auto auto 1fr}
     .panel,.helix{display:none}
     .chat{border-left:0}
-    .mini-alert{display:block;margin:0;background:var(--seed-soft);color:var(--warn);font-size:.88rem;font-weight:700;border-left:4px solid var(--seed);
+    .mini-alert{display:block;margin:0;background:var(--seed-soft);color:var(--warn);font-size:.88rem;font-weight:700;border-left:4px solid var(--alert-edge);
       padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
     details.help{display:block;margin:0;background:var(--paper);border-bottom:1px solid var(--line);
       padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
@@ -110,10 +110,10 @@
 <header class="bar">
   <a class="logo" href="./" aria-label="GenIA, início">
     <svg viewBox="0 0 64 64" aria-hidden="true">
-      <rect x="10" y="10" width="20" height="20" rx="3" fill="#E9B949"/>
-      <rect x="34" y="10" width="20" height="20" rx="3" fill="#E9B949"/>
-      <rect x="10" y="34" width="20" height="20" rx="3" fill="#E9B949"/>
-      <rect x="34" y="34" width="20" height="20" rx="3" fill="#67B98A"/>
+      <rect x="10" y="10" width="20" height="20" rx="3" fill="#5B7CFA"/>
+      <rect x="34" y="10" width="20" height="20" rx="3" fill="#5B7CFA"/>
+      <rect x="10" y="34" width="20" height="20" rx="3" fill="#5B7CFA"/>
+      <rect x="34" y="34" width="20" height="20" rx="3" fill="#E0479E"/>
     </svg>
     <span class="wordmark">Gen<b>IA</b></span>
   </a>
