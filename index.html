@@ -57,19 +57,19 @@
   @keyframes spin{to{background-position:center 120px}}
   @media (prefers-reduced-motion: reduce){ .helix{animation:none} }
 
-  .punnett{display:grid;grid-template-columns:22px repeat(2,46px);grid-template-rows:22px repeat(2,46px);gap:4px;font-family:var(--mono);font-weight:700;font-size:.85rem}
+  .punnett{display:grid;grid-template-columns:16px repeat(2,34px);grid-template-rows:16px repeat(2,34px);gap:3px;font-family:var(--mono);font-weight:700;font-size:.72rem;flex:none}
   .punnett .h{display:grid;place-items:center;color:var(--muted)}
   .punnett .c{display:grid;place-items:center;border-radius:6px;background:var(--seed);color:#fff}
   .punnett .r{background:var(--leaf);color:#fff}
-  .hero{display:flex;gap:18px;align-items:flex-start}
-  .hero h1{font-family:var(--display);font-weight:700;font-size:1.45rem;line-height:1.15;letter-spacing:-.015em;margin:0;text-wrap:balance}
+  .hero{display:flex;gap:16px;align-items:center}
+  .hero h1{font-family:var(--display);font-weight:700;font-size:1.3rem;line-height:1.2;letter-spacing:-.015em;margin:0;text-wrap:balance}
   .lead{margin:0;color:var(--muted)}
   .label{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
 
   /* Passos como gerações de um heredograma */
   .gens{list-style:none;margin:0;padding:0;position:relative;display:flex;flex-direction:column;gap:18px}
-  .gens::before{content:"";position:absolute;left:30px;top:14px;bottom:14px;width:2px;background:var(--line)}
-  .gens li{display:grid;grid-template-columns:20px 22px 1fr;gap:10px;align-items:start;position:relative}
+  .gens::before{content:"";position:absolute;left:46px;top:14px;bottom:14px;width:2px;background:var(--line)}
+  .gens li{display:grid;grid-template-columns:26px 22px 1fr;gap:10px;align-items:start;position:relative}
   .gen{font:700 .72rem/22px var(--mono);color:var(--muted);text-align:right}
   .sym{width:22px;height:22px;background:var(--surface);border:2px solid var(--deep-2);z-index:1}
   .sym.sq{border-radius:3px}
@@ -86,11 +86,26 @@
   .chat{background:var(--surface);min-height:0;display:flex;border-left:1px solid var(--line)}
   .chat iframe{border:0;width:100%;min-height:calc(100vh - 86px);display:block;background:var(--surface)}
 
+  .fs{display:flex;gap:4px}
+  .fs button{font:700 .8rem var(--mono);color:var(--on-deep);background:transparent;border:1px solid rgba(238,240,255,.35);border-radius:6px;padding:4px 8px;cursor:pointer}
+  .fs button:hover{background:rgba(238,240,255,.1)}
+  .rub{list-style:none;margin:0;padding:0;display:grid;gap:8px;counter-reset:r}
+  .rub li{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);counter-increment:r}
+  .rub li::before{content:counter(r);grid-row:span 2;font:700 .8rem/1.6 var(--mono);color:var(--seed)}
+  .rub b{font-size:.95rem}
+  .rub span{font-size:.88rem;color:var(--muted)}
+  .rub li:last-child{border-color:var(--leaf)}
+  .glos{border:1px solid var(--line);border-radius:8px;background:var(--surface);padding:10px 12px}
+  .glos summary{cursor:pointer;font-weight:700}
+  .glos dl{margin:10px 0 0;display:grid;gap:6px}
+  .glos dt{font-weight:700;font-size:.92rem}
+  .glos dd{margin:0 0 4px;font-size:.88rem;color:var(--muted)}
   details.help,.mini-alert{display:none}
   a:focus-visible,iframe:focus-visible,summary:focus-visible{outline:3px solid var(--leaf);outline-offset:2px}
 
   @media (max-width:860px){
-    .bar .sub{display:none}
+    .bar .sub,.bar .tag{display:none}
+    .fs{margin-left:auto}
     .app{grid-template-columns:1fr;grid-template-rows:auto auto 1fr}
     .panel,.helix{display:none}
     .chat{border-left:0}
@@ -119,6 +134,10 @@
   </a>
   <span class="sub">Retorno à sua escrita em genética</span>
   <span class="tag">Biologia · 3ª série</span>
+  <div class="fs" role="group" aria-label="Tamanho da letra">
+    <button type="button" id="fs-minus" aria-label="Diminuir a letra">A−</button>
+    <button type="button" id="fs-plus" aria-label="Aumentar a letra">A+</button>
+  </div>
 </header>
 <div class="seq" aria-hidden="true" id="seq"></div>
 
@@ -136,19 +155,44 @@
         <span class="h">A</span><span class="c">AA</span><span class="c">Aa</span>
         <span class="h">a</span><span class="c">Aa</span><span class="c r">aa</span>
       </div>
+      <h1>Escreva, receba um retorno, reescreva.</h1>
     </div>
     <div>
-      <h1>Escreva, receba um retorno, reescreva.</h1>
-      <p class="lead" style="margin-top:8px">A GenIA lê sua explicação sobre herança genética e aponta o que já está sustentado e o que ainda falta. A conclusão continua sendo sua.</p>
+      <p class="lead">A GenIA lê sua explicação sobre herança genética e aponta o que já está sustentado e o que ainda falta. A conclusão continua sendo sua.</p>
     </div>
     <section id="steps">
       <p class="label">Como usar</p>
       <ol class="gens">
+        <li><span class="gen">0</span><span class="sym ci"></span><span>Use <strong>janela anônima</strong> (Ctrl+Shift+N) ou <strong>modo visitante</strong> e feche ao terminar, para ninguém ver sua conversa.</span></li>
         <li><span class="gen">I</span><span class="sym sq"></span><span>Digite o <strong>código</strong> que a professora entregou (ex.: E07).</span></li>
         <li><span class="gen">II</span><span class="sym ci half"></span><span>Escolha: <strong>ler meu texto</strong>, <strong>quero uma pista</strong> ou <strong>tenho uma dúvida</strong>.</span></li>
         <li><span class="gen">III</span><span class="sym sq full"></span><span>Reescreva e decida se concorda. <strong>Você pode discordar</strong> e defender o que escreveu.</span></li>
       </ol>
     </section>
+    <section id="rubric">
+      <p class="label">Como seu texto é lido</p>
+      <ol class="rub">
+        <li><b>Alegação</b><span>Responde ao problema da aula?</span></li>
+        <li><b>Dados</b><span>Usa o cruzamento ou o heredograma como prova?</span></li>
+        <li><b>Justificativa</b><span>Liga os dados à alegação, passando por gene, cromossomo e herança?</span></li>
+        <li><b>Conceitos</b><span>Usa os conceitos corretamente? Este critério vem antes dos outros.</span></li>
+      </ol>
+    </section>
+    <details class="glos" id="glos">
+      <summary>Glossário rápido</summary>
+      <dl>
+        <dt>Gene</dt><dd>Trecho do DNA que contém a informação para uma característica.</dd>
+        <dt>Alelo</dt><dd>Cada uma das versões de um mesmo gene (por exemplo, A e a).</dd>
+        <dt>Genótipo</dt><dd>O par de alelos que a pessoa tem para um gene (AA, Aa ou aa).</dd>
+        <dt>Fenótipo</dt><dd>A característica que se observa, resultado do genótipo e do ambiente.</dd>
+        <dt>Homozigoto</dt><dd>Tem dois alelos iguais para o gene (AA ou aa).</dd>
+        <dt>Heterozigoto</dt><dd>Tem dois alelos diferentes para o gene (Aa).</dd>
+        <dt>Dominante</dt><dd>Alelo que se manifesta mesmo em dose única (A em Aa).</dd>
+        <dt>Recessivo</dt><dd>Alelo que só se manifesta em dose dupla (aa).</dd>
+        <dt>Gameta</dt><dd>Célula reprodutiva; leva só um alelo de cada gene.</dd>
+        <dt>Heredograma</dt><dd>Diagrama que mostra uma característica ao longo das gerações de uma família.</dd>
+      </dl>
+    </details>
     <div class="alert" role="note"><strong>Nunca digite seu nome, telefone, endereço ou senhas.</strong>O que você escreve passa por empresas de tecnologia com servidores fora do Brasil.</div>
     <p class="note">A GenIA é uma inteligência artificial e pode errar. Em caso de dúvida, quem decide é a sua professora.</p>
     <p class="foot">Ferramenta de uma pesquisa de mestrado em Ensino de Ciências.</p>
@@ -169,8 +213,23 @@
     // Mesmo "Como usar" no celular, sem duplicar o texto no código
     var st=document.getElementById("steps").cloneNode(true); st.removeAttribute("id");
     st.querySelector(".label").remove();
-    document.getElementById("help-inner").appendChild(st);
+    var hi=document.getElementById("help-inner"); hi.appendChild(st);
+    ["rubric","glos"].forEach(function(id){var c=document.getElementById(id).cloneNode(true);c.removeAttribute("id");c.style.marginTop="14px";hi.appendChild(c);});
+    // Tamanho da letra (preferência guardada só neste navegador)
+    var root=document.documentElement, size=16;
+    try{ size=parseInt(localStorage.getItem("genia-fs"))||16; }catch(e){}
+    function apply(){ root.style.fontSize=size+"px"; document.body.style.fontSize=size+"px"; try{localStorage.setItem("genia-fs",size);}catch(e){} }
+    apply();
+    document.getElementById("fs-plus").onclick=function(){ size=Math.min(22,size+2); apply(); };
+    document.getElementById("fs-minus").onclick=function(){ size=Math.max(14,size-2); apply(); };
   })();
 </script>
+<!-- VLibras: tradutor oficial para Libras (Governo Federal) -->
+<div vw class="enabled">
+  <div vw-access-button class="active"></div>
+  <div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div>
+</div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>try{ new window.VLibras.Widget("https://vlibras.gov.br/app"); }catch(e){}</script>
 </body>
 </html>
